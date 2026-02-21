@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using System.Data;
+using System.Data.SqlClient;
 using System.Web.UI;
-using System.Web.UI.WebControls;
+using Microsoft.AspNet.Identity;
 
 namespace Expense_Tracker
 {
@@ -11,7 +10,9 @@ namespace Expense_Tracker
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
+
+  
     }
 }

@@ -1,30 +1,327 @@
-﻿/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+﻿/* ==========================
+   General Body & Layout
+========================== */
+body {
+    background: url('../Images/R.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white; /* Default text color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(26,0,31,0.85); /* Overlay for readability */
+        z-index: -1;
+    }
+
+a {
+    color: #d8b4ff; /* Light purple links */
+    text-decoration: none;
+}
+
+    a:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+
+.container {
+    padding: 15px;
+}
+
+    /* ==========================
+   Cards, Panels, Home Sections
+========================== */
+    .card, .panel, .login-card, .ExpenseFormPanel, .home-panel, .home-card, .container.home-container {
+        background-color: rgba(46,0,62,0.9); /* Slightly transparent purple */
+        border-radius: 15px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        color: white;
+    }
+
+/* ==========================
+   Headings
+========================== */
+h1, h2, h3, h4, h5, h6 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* ==========================
+   Buttons
+========================== */
+.btn-purple, .btn, .home-panel .btn, .home-card .btn {
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+    .btn-purple:hover, .btn:hover, .home-panel .btn:hover, .home-card .btn:hover {
+        background-color: #4b0082;
+        color: white;
+        transform: translateY(-2px);
+    }
+
+/* Bootstrap overrides for primary buttons */
+.btn-primary {
+    background-color: #6a0dad;
+    border-color: #6a0dad;
+}
+
+    .btn-primary:hover {
+        background-color: #4b0082;
+        border-color: #4b0082;
+    }
+
+/* ==========================
+   Forms & Inputs
+========================== */
+.form-control, input[type="text"], input[type="password"], input[type="email"], select, textarea {
+    background-color: #f8f9fa;
+    color: black;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 8px 12px;
+    transition: 0.3s;
+}
+
+    .form-control:focus, input:focus, select:focus, textarea:focus {
+        border-color: #6a0dad;
+        box-shadow: 0 0 5px #6a0dad;
+        outline: none;
+    }
+
+/* ==========================
+   Validation & Messages
+========================== */
+.text-danger {
+    color: #ff6b6b !important;
+    font-weight: bold;
+}
+
+/* ==========================
+   GridView & Tables
+========================== */
+table, #gvExpenses, #gvRecentExpenses {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    color: white;
+}
+
+    table th, table td, #gvExpenses th, #gvExpenses td, #gvRecentExpenses th, #gvRecentExpenses td {
+        padding: 10px;
+        text-align: left;
+        border: 1px solid #4b0082;
+    }
+
+    table.table-striped tbody tr:nth-of-type(odd),
+    #gvExpenses tbody tr:nth-of-type(odd),
+    #gvRecentExpenses tbody tr:nth-of-type(odd) {
+        background-color: #330033;
+    }
+
+    table.table-striped tbody tr:nth-of-type(even),
+    #gvExpenses tbody tr:nth-of-type(even),
+    #gvRecentExpenses tbody tr:nth-of-type(even) {
+        background-color: #2e003e;
+    }
+
+    table th, #gvExpenses th, #gvRecentExpenses th {
+        background-color: #4b0082;
+        color: white;
+    }
+
+    #gvExpenses tbody tr:hover td,
+    #gvRecentExpenses tbody tr:hover td {
+        background-color: #6a0dad;
+        color: white;
+    }
+
+/* ==========================
+   Chart Styles
+========================== */
+.chart {
+    background-color: rgba(46,0,62,0.9);
+    border: 1px solid #4b0082;
+    border-radius: 10px;
+}
+
+/* ==========================
+   Responsive & Misc
+========================== */
 .body-content {
     margin-top: 25px;
     padding-left: 15px;
     padding-right: 15px;
 }
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
 .dl-horizontal dt {
     white-space: normal;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="tel"],
-input[type="select"] {
+input[type="text"], input[type="password"], input[type="email"], input[type="tel"], input[type="select"] {
     max-width: 280px;
 }
 
-/* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .body-content {
         padding: 0;
     }
 }
+
+/* ==========================
+   Footer & Misc Links
+========================== */
+footer {
+    background-color: rgba(46,0,62,0.9);
+    padding: 15px 0;
+    text-align: center;
+    color: #d8b4ff;
+}
+
+/* ==========================
+   Floating AI Chatbot
+========================== */
+#aiChatBubble {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #6a0dad;
+    color: white;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+    z-index: 9999;
+    transition: 0.3s;
+}
+
+    #aiChatBubble:hover {
+        background-color: #4b0082;
+        transform: scale(1.1);
+    }
+
+#aiChatWindow {
+    position: fixed;
+    bottom: 100px;
+    right: 25px;
+    width: 320px;
+    background-color: rgba(46,0,62,0.95);
+    border-radius: 15px;
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    z-index: 9999;
+}
+
+.ai-header {
+    background-color: #4b0082;
+    color: white;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.ai-body {
+    padding: 10px;
+    height: 280px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.ai-bot {
+    background-color: #6a0dad;
+    color: white;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.ai-user {
+    background-color: white;
+    color: black;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 8px;
+    text-align: right;
+    display: inline-block;
+    float: right;
+    clear: both;
+}
+
+.ai-footer {
+    display: flex;
+    border-top: 1px solid #4b0082;
+}
+
+    .ai-footer input {
+        flex: 1;
+        border: none;
+        padding: 8px;
+    }
+
+    .ai-footer button {
+        background-color: #6a0dad;
+        color: white;
+        border: none;
+        padding: 8px 12px;
+    }
+
+/* ==========================
+   Expenses Grid Theme
+========================== */
+.expense-grid {
+    background-color: rgba(46,0,62,0.9);
+    color: white;
+}
+
+    .expense-grid th {
+        background-color: #4b0082 !important;
+        color: white !important;
+        text-align: center;
+    }
+
+    .expense-grid td {
+        background-color: rgba(46,0,62,0.9) !important;
+        color: white !important;
+    }
+
+.expense-grid-alt td {
+    background-color: #3d0052 !important;
+    color: white !important;
+}
+
+.expense-grid input,
+.expense-grid select {
+    background-color: white !important;
+    color: black !important;
+}
+
+.expense-grid .btn {
+    background-color: #6a0dad;
+    color: white;
+    border: none;
+}
+
+    .expense-grid .btn:hover {
+        background-color: #4b0082;
+    }

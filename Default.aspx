@@ -1,44 +1,65 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Expense_Tracker._Default" %>
+﻿<%@ Page Title="Home" Language="C#" MasterPageFile="~/Site.Master" 
+    AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Expense_Tracker._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-    <main>
-        <section class="row" aria-labelledby="aspnetTitle">
-            <h1 id="aspnetTitle">ASP.NET</h1>
-            <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-            <p><a href="http://www.asp.net" class="btn btn-primary btn-md">Learn more &raquo;</a></p>
+    <main class="container mt-5 home-container">
+
+        <!-- Hero Section -->
+        <section class="home-panel text-center p-5 rounded" style="background-color: rgba(46,0,62,0.85);">
+            
+            <h1 class="display-4 text-white">Welcome to Expense Tracker</h1>
+            <p class="lead text-white">
+                Easily track your daily expenses, categorize them, and manage your budget.
+            </p>
+
+            <asp:LoginView runat="server">
+                <AnonymousTemplate>
+                    <asp:HyperLink runat="server" CssClass="btn btn-purple btn-lg mt-3" NavigateUrl="~/Account/Login">
+                        Get Started
+                    </asp:HyperLink>
+                </AnonymousTemplate>
+                <LoggedInTemplate>
+                    <asp:HyperLink runat="server" CssClass="btn btn-purple btn-lg mt-3" NavigateUrl="~/AddExpense.aspx">
+                        Add Expense
+                    </asp:HyperLink>
+                </LoggedInTemplate>
+            </asp:LoginView>
+
         </section>
 
-        <div class="row">
-            <section class="col-md-4" aria-labelledby="gettingStartedTitle">
-                <h2 id="gettingStartedTitle">Getting started</h2>
-                <p>
-                    ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-                A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-                </p>
-            </section>
-            <section class="col-md-4" aria-labelledby="librariesTitle">
-                <h2 id="librariesTitle">Get more libraries</h2>
-                <p>
-                    NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-                </p>
-            </section>
-            <section class="col-md-4" aria-labelledby="hostingTitle">
-                <h2 id="hostingTitle">Web Hosting</h2>
-                <p>
-                    You can easily find a web hosting company that offers the right mix of features and price for your applications.
-                </p>
-                <p>
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-                </p>
-            </section>
+        <!-- Features Section -->
+        <div class="row text-center mt-5">
+
+            <div class="col-md-4">
+                <div class="home-card p-3">
+                    <h3 class="text-white">Track Expenses</h3>
+                    <p class="text-white">
+                        Record every expense quickly with categories, notes, and dates.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="home-card p-3">
+                    <h3 class="text-white">Manage Budget</h3>
+                    <p class="text-white">
+                        View your spending and analyze trends to stay in control.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="home-card p-3">
+                    <h3 class="text-white">Secure & Personal</h3>
+                    <p class="text-white">
+                        Your data is tied to your account, safely stored, and private.
+                    </p>
+                </div>
+            </div>
+
         </div>
+
     </main>
 
 </asp:Content>

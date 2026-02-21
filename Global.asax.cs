@@ -16,6 +16,9 @@ namespace Expense_Tracker
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            // Ensure database is created
+            System.Data.Entity.Database.SetInitializer(new System.Data.Entity.CreateDatabaseIfNotExists<Expense_Tracker.Models.ApplicationDbContext>());
         }
     }
 }

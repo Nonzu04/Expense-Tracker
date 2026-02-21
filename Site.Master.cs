@@ -7,6 +7,8 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Microsoft.AspNet.Identity;
+using Microsoft.Owin.Security;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Expense_Tracker
 {
@@ -70,6 +72,14 @@ namespace Expense_Tracker
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void LoginStatus_LoggingOut(object sender, LoginCancelEventArgs e)
+        {
+            // Sign out the OWIN authentication cookie
+            var ctx = Request.GetOwinContext();
+            var authManager = ctx.Authentication;
+            authManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)
