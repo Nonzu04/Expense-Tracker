@@ -54,3 +54,28 @@ This application allows users to securely manage daily expenses, categorize spen
 
 ```bash
 git clone https://github.com/Nonzu04/Expense-Tracker.git
+
+## Screenshots
+
+### Home Page
+![Home Page](Screenshots/HomePage.png "Home Page")
+
+### Add Expense Page
+![Add Expense](Screenshots/AddExpense1.png "Add Expense Form")
+![Add Expense](Screenshots/AddExpense2.png "Add Expense Form")
+
+
+### Expenses Table
+![Expenses Grid](Screenshots/ExpenseeGrid.png "My Expenses Table")
+
+### AI Chatbot
+![AI Chatbot](Screenshots/AIChatbot.png "Floating AI Chatbot")
+
+### Expense Summary
+![Expense Summary](Screenshots/ExpenseSummary.png "Summary Chart")
+
+### Register Page
+![Register Page](Screenshots/Register.png "Registration Page")
+
+###Login Page
+![Login Page](Screenshots/LoginPage.png "Login Page")
